@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    overscroll-behavior-y: none;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom scrollbar for horizontal categories */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Splash Screen Animations */
+@keyframes roadLinesScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-160px);
+  }
+}
+
+@keyframes carDriveAcross {
+  0% {
+    transform: translateX(-140px);
+  }
+  20% {
+    transform: translateX(12vw);
+  }
+  75% {
+    transform: translateX(65vw);
+  }
+  100% {
+    transform: translateX(calc(100vw + 160px));
+  }
+}
+
+@keyframes carSuspensionBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes splashProgressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes splashFadeInUpKeyframe {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-road-lines {
+  animation: roadLinesScroll 0.75s linear infinite;
+}
+
+.animate-car-drive {
+  animation: carDriveAcross 2.5s cubic-bezier(0.22, 0.8, 0.36, 1) forwards;
+}
+
+.animate-car-bob {
+  animation: carSuspensionBob 0.35s ease-in-out infinite;
+}
+
+.animate-spin-wheel {
+  animation: wheelSpin 0.45s linear infinite;
+}
+
+.animate-splash-progress {
+  animation: splashProgressFill 2.5s linear forwards;
+}
+
+.animate-splash-fade-in-up {
+  animation: splashFadeInUpKeyframe 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+

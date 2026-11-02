@@ -1,0 +1,6 @@
+{
+  "name": "SignaGo — Panneaux de la Route",
+  "description": "Application PWA mobile et hors ligne pour apprendre et réviser les panneaux du code de la route avec fiches de cours, quiz interactif et répétition espacée.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
