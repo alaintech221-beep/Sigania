@@ -47,7 +47,8 @@ export const Header: React.FC<HeaderProps> = ({
               <img
                 src="/icon.svg"
                 alt="SignaGo Logo"
-                className="w-full h-full object-contain filter drop-shadow-sm"
+                draggable={false}
+                className="w-full h-full object-contain filter drop-shadow-sm pointer-events-none select-none"
               />
             </div>
             <div>

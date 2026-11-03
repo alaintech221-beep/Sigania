@@ -2,13 +2,56 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-  * {
+  /* 1. & 4. Désactivation du tap highlight et du callout tactile */
+  *,
+  *::before,
+  *::after {
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
-  
+
+  /* 1., 5. & 6. Comportement natif sur html et body : pas de sélection, pas de zoom double-tap, pas de pull-to-refresh */
+  html,
   body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
     overscroll-behavior-y: none;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* 2. EXCEPTION IMPORTANTE : sélection et saisie normales dans les champs de saisie */
+  input,
+  textarea,
+  [contenteditable="true"],
+  [contenteditable=""] {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+    -webkit-touch-callout: default !important;
+    touch-action: auto;
+  }
+
+  /* 3. Désactivation du glisser d'images et pointer-events adaptés */
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Boutons et éléments interactifs : réactivité tactile immédiate */
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
   }
 }
 

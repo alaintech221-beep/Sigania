@@ -165,9 +165,10 @@ export const SignImage: React.FC<SignImageProps> = ({
           alt={`${sign.nom} (${sign.code})`}
           loading="lazy"
           decoding="async"
+          draggable={false}
           onLoad={handleImageLoad}
           onError={handleImageError}
-          className={`${imageClassName} transition-opacity duration-200 ${
+          className={`${imageClassName} transition-opacity duration-200 select-none ${
             isLoading ? 'opacity-0' : 'opacity-100'
           }`}
         />
